@@ -1,6 +1,6 @@
 // main entry point
 
-// initialise environment variables
+// initialise environment variables.
 import 'dotenv/config'
 import { TSClient } from './Structures/Client'
 

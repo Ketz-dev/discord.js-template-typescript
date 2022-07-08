@@ -3,22 +3,39 @@ import { APIApplicationCommandOption, RESTPostAPIApplicationCommandsJSONBody } f
 import { CommandInteraction, PermissionResolvable, Permissions } from "discord.js";
 import { TSClient } from "./Client";
 
-// the config object to pass when instantiating a command
+/**
+ * The configuration object to pass in the Command constructor.
+ */
 export interface ICommandConfig {
     name: string; category: string; description: string
     options?: APIApplicationCommandOption[]; permissions?: PermissionResolvable
 }
 
-// command class
+/**
+ * The command class.
+ */
 export class Command {
     // some application command properties
     private readonly options: APIApplicationCommandOption[]
     private readonly permissions: `${bigint}`
 
+    /**
+     * The name of the command.
+     */
     public readonly name: string
+    /**
+     * The category of the command.
+     */
     public readonly category: string
+    /**
+     * The command's description.
+     */
     public readonly description: string
 
+    /**
+     * @param config - The configuration object.
+     * @param execute - The command's execute function.
+     */
     public constructor(
         config: ICommandConfig,
         public readonly execute: (client: TSClient, interaction: CommandInteraction<'cached'>) => void
@@ -33,7 +50,9 @@ export class Command {
         this.permissions = Permissions.resolve(config.permissions ?? Permissions.DEFAULT).toString() as `${bigint}`
     }
     
-    // convert it to JSON for to put it to our REST application
+    /**
+     * Converts the command to JSON.
+     */
     public toJSON(): RESTPostAPIApplicationCommandsJSONBody {
         return {
             name: this.name, description: this.description,
