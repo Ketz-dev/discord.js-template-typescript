@@ -10,8 +10,8 @@ A little template for developing Discord bots in Typescript.
 - [Typescript](#typescript)
 
 ## Dependencies
-[![Node.js](https://img.shields.io/badge/-Node.js-68A063?style=for-the-badge&logo=nodedotjs&logoColor=303030)](https://nodejs.org/en/)
-[![npm](https://img.shields.io/badge/-npm-CC3534?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)
+[![Node.js](https://img.shields.io/badge/node.js-%233C873A.svg?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
+[![npm](https://img.shields.io/badge/npm-%23CC3534.svg?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)
 
 ## Quick start
 1. **Get this template:** Click on the "Use this template" button. This will allow you to create a new repository with this project's structure on your Github account. Then you can clone it to your local machine.
