@@ -46,19 +46,19 @@ npm run start
 
 ```
 ├───src/                                Source code goes here
-|   ├───commands/                       Application commands go here
-|   |   ├───test/                       
-|   |   |   └───ping.ts
-|   ├───events/                         Client events go here
-|   |   ├───command-execute.ts
-|   |   └───launch.ts
-|   ├───Structures/                     Object structures go here
-|   |   ├───Client.ts                   Application client
-|   |   ├───Command.ts                  Application command
-|   |   └───Event.ts                    Client event
-|   ├───util                            Utility functions and types go here
-|   |   └───IO.ts                       Handling IO
-|   └───index.ts                        Main entry point
+│   ├───commands/                       Application commands go here
+│   │   ├───test/                       
+│   │   │   └───ping.ts
+│   ├───events/                         Client events go here
+│   │   ├───command-execute.ts
+│   │   └───launch.ts
+│   ├───Structures/                     Object structures go here
+│   │   ├───Client.ts                   Application client
+│   │   ├───Command.ts                  Application command
+│   │   └───Event.ts                    Client event
+│   ├───util                            Utility functions and types go here
+│   │   └───FS.ts                       File System helpers
+│   └───index.ts                        Main entry point
 ├───.env                                Environment variables go here
 ├───.gitignore                          Files that should not be pushed to the repo
 ├───env.d.ts                            Environment variable declarations go here                 

@@ -3,7 +3,7 @@ import { Routes } from "discord-api-types/v10";
 import { Client, Collection, Intents } from "discord.js";
 import { readdir } from "fs/promises";
 import { join, parse } from "path";
-import { defaultImport } from "../util/IO";
+import { defaultImport } from "../util/FS";
 import { Command } from "./Command";
 import { Event } from "./Event";
 
@@ -37,7 +37,7 @@ export class TSClient extends Client<true> { // explicitly passing `true` here s
 
         for (let file of eventFiles) {
             let filePath = join(eventsPath, file)
-            let event = await defaultImport(filePath) as Event<any> // cast it to an `Event`.
+            let event = await defaultImport<Event<any>>(filePath)
 
             // making sure the event is an event
             if (!(event instanceof Event)) {
@@ -72,7 +72,7 @@ export class TSClient extends Client<true> { // explicitly passing `true` here s
 
             for (let file of commandFiles) {
                 let filePath = join(commandsPath, file)
-                let command = await defaultImport(filePath) as Command // cast it.
+                let command = await defaultImport<Command>(filePath)
 
                 // again, making sure if the command is a command.
                 if (!(command instanceof Command)) {

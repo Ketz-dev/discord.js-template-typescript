@@ -5,6 +5,6 @@
  * 
  * @param path - The path to the file.
  */
-export async function defaultImport(path: string): Promise<any> {
+export async function defaultImport<T>(path: string): Promise<T> {
     return (await import(path))?.default
 }
