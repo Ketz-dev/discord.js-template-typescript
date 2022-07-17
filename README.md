@@ -70,6 +70,16 @@ npm run start
 
 You can configure the Typescript compiler in `tsconfig.json`. To keep the codebase safe, the `strict` flag is set to true. Feel free to disable this flag and add your preferred configurations.
 
+## Logging
+
+Logging is all handled by [winston](https://www.npmjs.com/package/winston). If you would like to change the format of your logs, feel free to change the `format` property to your prefferences at `Logger.ts`
+
+```ts
+Logger.info('did X.')
+Logger.warn('Y is missing.')
+Logger.error('Z is of invalid format')
+```
+
 ## NPM scripts
 
 A brief description of the scripts you'll find in `package.json`:

@@ -2,10 +2,11 @@ import { REST } from "@discordjs/rest";
 import { Routes } from "discord-api-types/v10";
 import { Client, Collection, Intents } from "discord.js";
 import { readdir } from "fs/promises";
-import { join, parse } from "path";
+import { join } from "path";
 import { defaultImport } from "../util/FS";
 import { Command } from "./Command";
 import { Event } from "./Event";
+import Logger from '../util/Logger'
 
 /**
  * The client class.
@@ -29,7 +30,7 @@ export class TSClient extends Client<true> { // explicitly passing `true` here s
      * Registers and listens for the client events.
      */
     private async registerEvents(): Promise<void> {
-        console.log('Registering events...\n')
+        Logger.info('Registering events...')
 
         // as of now, Glob doesn't seem to work for some reason. So we'll be using node:fs.
         let eventsPath = join(__dirname, '..', 'events')
@@ -41,7 +42,7 @@ export class TSClient extends Client<true> { // explicitly passing `true` here s
 
             // making sure the event is an event
             if (!(event instanceof Event)) {
-                console.log('%s does not export an event - failed!', file)
+                Logger.warn(`${file} does not export an Event class - failed!`)
 
                 continue // not breaking/returning since we still want our bot to run.
             }
@@ -49,17 +50,17 @@ export class TSClient extends Client<true> { // explicitly passing `true` here s
             // only listens once for events with the `once` property true.
             this[event.once ? 'once' : 'on'](event.key, event.emit.bind(null, this))
 
-            console.log('%s: %s - successful!', event.key, file)
+            Logger.info(`${event.key}: ${file} - successful!`)
         }
 
-        console.log('\nEvents registered!')
+        Logger.info('Events registered!')
     }
 
     /**
      * Registers the application commands.
      */
     private async registerCommands(): Promise<void> {
-        console.log('Registering commands...\n')
+        Logger.info('Registering commands...')
 
         // again, using node:fs.
         let categoriesPath = join(__dirname, '..', 'commands')
@@ -76,14 +77,14 @@ export class TSClient extends Client<true> { // explicitly passing `true` here s
 
                 // again, making sure if the command is a command.
                 if (!(command instanceof Command)) {
-                    console.log('%s does not export a command - failed!', file)
+                    Logger.warn(`${file} does not export a Command class - failed!`)
 
                     continue
                 }
 
                 this.commands.set(command.name, command)
 
-                console.log('%s: %s - successful!', command.category, command.name)
+                Logger.info(`${command.category}: ${command.name} - successful!`)
             }
         }
 
@@ -98,10 +99,10 @@ export class TSClient extends Client<true> { // explicitly passing `true` here s
             // map our commands to JSON.
             await rest.put(route, { body: this.commands.map(command => command.toJSON()) })
 
-            console.log('\nCommands registered!')
+            Logger.info('Commands registered!')
         } catch (error) { // catching in case anything goes wrong.
-            console.log('\nFailed to register commands')
-            console.error(error)
+            Logger.error('Failed to register commands')
+            Logger.error(error)
         }
     }
 

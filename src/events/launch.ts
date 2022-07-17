@@ -1,10 +1,11 @@
 import { Event } from "../Structures/Event";
+import Logger from '../util/Logger'
 
 // our ready event.
 export default new Event('ready', (client) => {
 
     // usually, {client.user} is possibly undefined and we have to call `#isReady()` to make sure it isn't. But since we explicitly extended our Client with `Client<true>`, we don't have to do that!
-    console.log('Logged in as %s!', client.user.tag)
+    Logger.info(`Logged in as ${client.user.tag}!`)
 
     // WEEZER!
     client.user.setActivity({ name: 'Weezer', type: 'LISTENING' }) // feel free to remove this, this is silly. :)
