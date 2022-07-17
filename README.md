@@ -36,6 +36,8 @@ npm install
 - `GUILD_ID` - your test server's id
 - `CLIENT_ID` - your bot's user id
 
+    If you are going to commit to github, please run `git rm .env --cached` to avoid leaking your application's token.
+
 5. **Start the development server:**
 
 ```sh
