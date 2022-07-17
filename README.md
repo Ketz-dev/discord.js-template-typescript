@@ -72,7 +72,7 @@ You can configure the Typescript compiler in `tsconfig.json`. To keep the codeba
 
 ## Logging
 
-Logging is all handled by [winston](https://www.npmjs.com/package/winston). If you would like to change the format of your logs, feel free to change the `format` property to your prefferences at `Logger.ts`
+Logging is all handled by [winston](https://www.npmjs.com/package/winston). If you would like to change the format of your logs, feel free to change the `format` property to your preferrences at `Logger.ts`
 
 ```ts
 Logger.info('did X.')
