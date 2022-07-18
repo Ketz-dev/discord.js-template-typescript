@@ -10,7 +10,7 @@ A little template for developing Discord bots in Typescript.
 - [Typescript](#typescript)
 
 ## Dependencies
-[![Node.js](https://img.shields.io/badge/node.js-%233C873A.svg?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
+[![Node.js](https://img.shields.io/badge/Node.js-%233C873A.svg?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
 [![npm](https://img.shields.io/badge/npm-%23CC3534.svg?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)
 
 ## Quick start
@@ -19,7 +19,7 @@ A little template for developing Discord bots in Typescript.
     Alternatively, you can clone this repository to your machine using the following command:
 
 ```sh
-git clone https://github.com/Ketz-dev/discord.js-template-typescript.git
+git clone https://github.com/Keys-dev/discord.js-template-typescript.git
 ```
 
 2. **Install dependencies:** Run the following command from the project's root folder:
